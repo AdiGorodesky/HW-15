@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  background-color: rgb(53, 53, 53);
+  color: rgb(218, 212, 201);
+  text-align: end;
+  padding: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(53, 53, 53);
+}
+
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
+.even-row {
+  background-color: whitesmoke;
+}
+
+.odd-row {
+  background-color: rgb(183, 183, 183);
+}
+
+table {
+  width: 80%;
+  position: relative;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+th {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgb(30, 114, 86);
+  color: whitesmoke;
+  padding: 8px;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+  color: rgb(53, 53, 53);
+}
+
+footer {
+  background-color: rgb(53, 53, 53);
+  color: rgb(218, 212, 201);
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-txt {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+input {
+  margin: 3px;
+  border: solid 1px rgb(53, 53, 53);
+  border-radius: 3px;
+  width: 10%;
+}
+
+label {
+  margin: 3px;
+}
+
+button {
+  margin: 3px;
+  border: solid 1px rgb(53, 53, 53);
+  border-radius: 3px;
+  width: 5%;
+  background-color: rgb(30, 114, 86);
+  color: whitesmoke;
+}
