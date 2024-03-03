@@ -1,0 +1,14 @@
+footer {
+  background-color: rgb(53, 53, 53);
+  color: rgb(218, 212, 201);
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-txt {
+  margin-top: 0;
+  font-size: 12px;
+}

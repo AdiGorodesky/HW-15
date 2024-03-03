@@ -1,28 +1,20 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const emptyStudent = {
-  name: "",
-  age: 0,
-  major: "",
-  university: "",
-  averageGrade: 0,
-};
-const AddStudent = ({ handleAddStudent }) => {
-  const [newStudent, setNewStudent] = useState(emptyStudent);
+const EditStudent = ({ handleChangedStudent, selectedStudent }) => {
+  const [editStudent, setEditStudent] = useState(selectedStudent);
 
   const submit = (event) => {
     event.preventDefault();
-    const { name, age, major, university, averageGrade } = newStudent;
+    const { name, age, major, university, averageGrade } = editStudent;
     if (!name || age <= 0 || !major || !university || averageGrade <= 0) return;
-
-    handleAddStudent(newStudent);
+    handleChangedStudent(editStudent);
   };
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setNewStudent({ ...newStudent, [name]: value });
+    setEditStudent({ ...editStudent, [name]: value });
   };
 
   return (
@@ -30,7 +22,7 @@ const AddStudent = ({ handleAddStudent }) => {
       <form onSubmit={submit}>
         <label htmlFor="name">Name: </label>
         <input
-          value={newStudent.name}
+          value={editStudent.name}
           onChange={handleChange}
           type="text"
           id="name"
@@ -39,7 +31,7 @@ const AddStudent = ({ handleAddStudent }) => {
         />
         <label htmlFor="age">Age: </label>
         <input
-          value={newStudent.age}
+          value={editStudent.age}
           type="number"
           id="age"
           name="age"
@@ -48,7 +40,7 @@ const AddStudent = ({ handleAddStudent }) => {
         />
         <label htmlFor="major">Major: </label>
         <input
-          value={newStudent.major}
+          value={editStudent.major}
           type="text"
           id="major"
           name="major"
@@ -57,7 +49,7 @@ const AddStudent = ({ handleAddStudent }) => {
         />
         <label htmlFor="university">University: </label>
         <input
-          value={newStudent.university}
+          value={editStudent.university}
           type="text"
           id="university"
           name="university"
@@ -66,17 +58,17 @@ const AddStudent = ({ handleAddStudent }) => {
         />
         <label htmlFor="averageGrade">Average Grade: </label>
         <input
-          value={newStudent.averageGrade}
+          value={editStudent.averageGrade}
           type="number"
           id="averageGrade"
           name="averageGrade"
           onChange={handleChange}
           placeholder="Student Average Grade.."
         />
-        <Button>Submit</Button>
+        <Button>Save Changes</Button>
       </form>
     </>
   );
 };
 
-export default AddStudent;
+export default EditStudent;

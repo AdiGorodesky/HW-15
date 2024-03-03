@@ -1,0 +1,20 @@
+table,
+th {
+  border: none;
+  border-collapse: collapse;
+}
+
+table {
+  width: 80%;
+  position: relative;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+th {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgb(30, 114, 86);
+  color: whitesmoke;
+  padding: 8px;
+}

@@ -1,0 +1,26 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+input {
+  margin: 3px;
+  border: solid 1px rgb(53, 53, 53);
+  border-radius: 3px;
+  width: 10%;
+}
+
+label {
+  margin: 3px;
+}
+
+button {
+  margin: 3px;
+  border: solid 1px rgb(53, 53, 53);
+  border-radius: 3px;
+  width: 10%;
+  background-color: rgb(30, 114, 86);
+  color: whitesmoke;
+}
