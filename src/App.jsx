@@ -6,11 +6,30 @@ import { useState } from "react";
 import { utilService } from "../services/utilService";
 import AddStudent from "./components/AddStudent";
 import EditStudent from "./components/EditStudent";
+import { userService } from "../services/userService";
+
+const emptyStudent = {
+  name: "",
+  age: 0,
+  major: "",
+  university: "",
+  averageGrade: 0,
+};
 
 const App = () => {
+  // const studentsTry = userService
+  //   .getStudentAsync()
+  //   .then((res) => {
+  //     console.log(res);
+  //     setStudents(res);
+  //   })
+  //   .catch((err) => console.log(err));
+  // console.log(studentsTry);
   const [students, setStudents] = useState(initialStudents);
-  const [isEdit, setIsEdit] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState({});
+  const initialStudent = selectedStudent.id ? selectedStudent : emptyStudent;
+
+  const [changedStudent, setChangedStudent] = useState(initialStudent);
 
   const handleAddStudent = (newStudent) => {
     newStudent = {
@@ -33,38 +52,44 @@ const App = () => {
   };
 
   const handleEdit = (studentId) => {
-    const selectedStudent = students.filter(
+    const selectedStudent = students.find(
       (student) => studentId === student.id
     );
-    setIsEdit(true);
-    setSelectedStudent(selectedStudent[0]);
-    // how to tranfer only an obj without the arr
+
+    setSelectedStudent(selectedStudent);
+    setChangedStudent(selectedStudent);
   };
 
   const handleChangedStudent = (changedStudent) => {
     const changedStudents = students.map((student) => {
-      student.id === changedStudent.id
-        ? Object.assign(student, changedStudent)
-        : student;
+      const updatedStudent =
+        student.id === changedStudent.id
+          ? Object.assign(student, changedStudent)
+          : student;
+      return updatedStudent;
     });
-    console.log(changedStudents);
 
-    // setStudents(changedStudents);
-    setIsEdit(false);
+    setStudents(changedStudents);
+  };
+
+  const handleAddOrEdit = (student) => {
+    if (student.id) {
+      handleChangedStudent(student);
+    } else {
+      handleAddStudent(student);
+    }
   };
 
   return (
     <main>
       <Header />
       <h1>Student List</h1>
-      {isEdit ? (
-        <EditStudent
-          handleChangedStudent={handleChangedStudent}
-          selectedStudent={selectedStudent}
-        />
-      ) : (
-        <AddStudent handleAddStudent={handleAddStudent} />
-      )}
+      <AddStudent
+        userToUpdate={selectedStudent}
+        handleAddOrEdit={handleAddOrEdit}
+        changedStudent={changedStudent}
+        setChangedStudent={setChangedStudent}
+      />
 
       <Dashboard
         students={students}
