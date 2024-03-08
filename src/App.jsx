@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import { userService } from "../services/userService";
 import { storageService } from "../services/storageService";
+import Admin from "./components/Admin";
 
 const emptyStudent = {
   name: "",
@@ -27,6 +28,11 @@ const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [showRegister, setShowRegister] = useState(null);
   const [alertMsg, setAlertMsg] = useState(null);
+  const [users, setUsers] = useState(storageService.getUsers());
+  // console.log(users);
+  // console.log(loggedInUser);
+
+  // console.log(loggedInUser.isAdmin);
 
   useEffect(() => {
     const loggedInUser = storageService.getLoggedInUser();
@@ -62,6 +68,11 @@ const App = () => {
       (student) => student.id !== studentId
     );
     setStudents(updatedStudents);
+  };
+
+  const removeUser = (userId) => {
+    const updatedUsers = users.filter((user) => user.id !== userId);
+    setUsers(updatedUsers);
   };
 
   const handleEdit = (studentId) => {
@@ -138,6 +149,9 @@ const App = () => {
             removeStudent={removeStudent}
             handleEdit={handleEdit}
           />
+          {loggedInUser.isAdmin ? (
+            <Admin users={users} removeUser={removeUser} />
+          ) : null}
         </>
       )}
 

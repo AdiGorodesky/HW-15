@@ -1,0 +1,11 @@
+.admin-table {
+  margin-top: 30px;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: var(--color-light);
+}
+
+.admin-table tr:nth-child(odd) {
+  background-color: var(--color-light2);
+}
