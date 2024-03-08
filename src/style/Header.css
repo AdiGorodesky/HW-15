@@ -1,8 +1,21 @@
 header {
-  background-color: rgb(53, 53, 53);
-  color: rgb(218, 212, 201);
-  text-align: end;
+  background-color: var(--color-dark);
+  color: var(--color-light2);
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+.logo {
+  align-self: flex-start;
+}
+
+.user-info {
+  align-self: flex-end;
+}
+
+.user-info button {
+  width: 40%;
 }

@@ -14,7 +14,7 @@ table {
 th {
   font-weight: bold;
   font-size: 18px;
-  background-color: rgb(30, 114, 86);
-  color: whitesmoke;
+  background-color: var(--color-green);
+  color: var(--color-light);
   padding: 8px;
 }

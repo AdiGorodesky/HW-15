@@ -1,6 +1,6 @@
 footer {
-  background-color: rgb(53, 53, 53);
-  color: rgb(218, 212, 201);
+  background-color: var(--color-dark);
+  color: var(--color-light2);
   font-size: 15px;
   display: flex;
   flex-direction: column;

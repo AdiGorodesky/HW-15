@@ -1,6 +1,8 @@
 @import "./global.css";
-@import "./AddStudent.css";
+@import "./AddOrEdit.css";
 @import "./Header.css";
 @import "./Dashboard.css";
 @import "./Student.css";
 @import "./Footer.css";
+@import "./Login.css";
+@import "./Register.css";

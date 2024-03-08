@@ -1,17 +1,17 @@
 td {
   text-align: center;
   padding: 5px;
-  color: rgb(53, 53, 53);
+  color: var(--color-dark);
   border: none;
   border-collapse: collapse;
 }
 
 .even-row {
-  background-color: whitesmoke;
+  background-color: var(--color-light);
 }
 
 .odd-row {
-  background-color: rgb(183, 183, 183);
+  background-color: var(--color-light2);
 }
 
 .remove-btn,

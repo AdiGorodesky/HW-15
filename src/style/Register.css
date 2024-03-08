@@ -1,0 +1,42 @@
+.register-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+
+.register-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-radius: 3px;
+  border: solid 2px var(--color-dark);
+  width: 50%;
+  background-color: var(--color-green2);
+}
+
+.register-container h1 {
+  color: var(--color-green);
+}
+
+.register-container form {
+  width: 80%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.register-container input {
+  width: 100%;
+  border: 1px solid var(--color-green);
+}
+
+.register-container form label {
+  color: var(--color-green);
+}
+
+.register-btn {
+  width: 20%;
+  align-self: center;
+}
