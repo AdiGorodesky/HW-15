@@ -1,4 +1,3 @@
-import initialStudents from "./data/students";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
@@ -29,10 +28,7 @@ const App = () => {
   const [showRegister, setShowRegister] = useState(null);
   const [alertMsg, setAlertMsg] = useState(null);
   const [users, setUsers] = useState(storageService.getUsers());
-  // console.log(users);
-  // console.log(loggedInUser);
-
-  // console.log(loggedInUser.isAdmin);
+  const [svg, setSvg] = useState(null);
 
   useEffect(() => {
     const loggedInUser = storageService.getLoggedInUser();
@@ -48,6 +44,16 @@ const App = () => {
       setStudents(data);
     };
     loadStudents();
+  }, []);
+
+  useEffect(() => {
+    const loadImg = async () => {
+      const img = await userService.fetchAvatar();
+      if (img) {
+        setSvg(img);
+      }
+    };
+    loadImg();
   }, []);
 
   const handleAddStudent = (newStudent) => {
@@ -73,6 +79,7 @@ const App = () => {
   const removeUser = (userId) => {
     const updatedUsers = users.filter((user) => user.id !== userId);
     setUsers(updatedUsers);
+    storageService.removeUser(userId);
   };
 
   const handleEdit = (studentId) => {
@@ -154,6 +161,7 @@ const App = () => {
           ) : null}
         </>
       )}
+      <img src={svg} alt="" width="200px" height="200px" />
 
       <Footer />
     </main>

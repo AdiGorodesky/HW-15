@@ -1,3 +1,4 @@
+import axios from "axios";
 import students from "../src/data/students";
 import { storageService } from "./storageService";
 import { utilService } from "./utilService";
@@ -8,11 +9,11 @@ async function getStudentAsync() {
 
 function createUser(username, email, password, avatar = "") {
   const newUser = {
-    id: utilService.generateId(),
+    id: `${utilService.generateId()}`,
     username,
     password,
     email,
-    avatar,
+    avatar: `https://robohash.org/${username}`,
     isAdmin: false,
     createdAt: new Date(),
   };
@@ -37,39 +38,24 @@ function logout() {
 
 async function fetchAvatar(username = "shoshi") {
   try {
-    const URL = `https://yesno.wtf/api`;
-    //? GET with fetch
-    // const response = await fetch(URL)
-    // const data = await response.json()
+    let avatarId = "Binx Bond";
+    const URL = `https://api.multiavatar.com/${avatarId}`;
+    const { data } = await axios.get(URL);
 
-    //? POST with fetch:
-    // const fetchDataWithFetch = await fetch(URL, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: { data: "I am a body" },
-    // });
+    return data;
 
-    // const data1 = await fetchDataWithFetch.json();
-
-    //? GET with axios
-    // const { data } = await axios.get(URL)
-
-    //? POST with axios:
-    //   const fetchDataWithAxios = await axios.put(
-    //     `${URL}?username=shoshi&isAdmin=true`,
-    //     { data: "I Am a body" }
-    //   );
-    //   const { data } = fetchDataWithAxios;
-    //   return data;
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    // fetch("https://api.multiavatar.com/" + JSON.stringify(avatarId))
+    //   .then((res) => res.text())
+    //   .then((svg) => console.log(svg));
+    // const URL = ` https://robohash.org/robo@robohash.org`;
+    // const { data } = await axios.get(URL);
+    // console.log(data);
+    // return data;
   } catch (error) {
     console.log(error);
   }
 }
+fetchAvatar();
 
 export const userService = {
   getStudentAsync,

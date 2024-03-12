@@ -9,6 +9,16 @@ export const storageService = {
   saveUsers(users) {
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
   },
+  removeUser(userId) {
+    const users = this.getUsers();
+    console.log(users);
+    console.log(userId);
+
+    const usersAfterRemove = users.filter((user) => user.id !== userId);
+    console.log(usersAfterRemove);
+
+    this.saveUsers(usersAfterRemove);
+  },
   getLoggedInUser() {
     const loggedInUser = sessionStorage.getItem(LOGGED_IN_USER);
     return loggedInUser ? JSON.parse(loggedInUser) : null;
