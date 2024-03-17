@@ -45,7 +45,7 @@ const LoginPage = () => {
         <div className="auth-switch">
           <p>
             Don't have an account?{" "}
-            <Button onClick={() => navigate("/signup")}>Login</Button>
+            <Button onClick={() => navigate("/signup")}>Sign Up</Button>
           </p>
         </div>
         <div className="alert-msg">{alertMsg ? <p>{alertMsg}</p> : null}</div>

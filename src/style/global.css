@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(74, 73, 73);
 }
 
 h1 {
@@ -14,10 +15,11 @@ h1 {
 
 :root {
   --color-dark: rgb(53, 53, 53);
-  --color-green: rgb(30, 114, 86);
-  --color-green2: rgb(96, 182, 154);
-  --color-light: whitesmoke;
+  --color-green: rgb(85, 148, 127);
+  --color-green2: rgb(32, 87, 69);
+  --color-light: rgb(213, 206, 206);
   --color-light2: rgb(183, 183, 183);
+  --color-light3: rgb(130, 169, 147);
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 

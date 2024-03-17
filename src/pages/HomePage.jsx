@@ -10,6 +10,7 @@ const HomePage = () => {
     if (!user) {
       navigate("/login");
     }
+    navigate("/students");
   }, []);
 
   return <div>HomePage</div>;

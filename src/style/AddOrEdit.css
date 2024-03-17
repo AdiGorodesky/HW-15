@@ -10,6 +10,7 @@ input {
   border: solid 1px var(--color-dark);
   border-radius: 3px;
   width: 10%;
+  background-color: var(--color-light);
 }
 
 label {
@@ -21,6 +22,6 @@ button {
   border: solid 1px var(--color-dark);
   border-radius: 3px;
   width: 10%;
-  background-color: var(--color-green);
+  background-color: var(--color-green2);
   color: var(--color-light);
 }

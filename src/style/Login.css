@@ -33,25 +33,26 @@
 }
 
 .login-container form label {
-  color: var(--color-green);
+  color: var(--color-light);
 }
 
 .auth-switch {
   align-self: flex-end;
   font-size: 12px;
-  color: var(--color-green);
+  color: var(--color-light);
+  text-align: center;
 }
 
 .auth-switch button {
   font-size: 12px;
-  width: 20%;
-  padding: 0;
-  text-decoration: underline;
+  width: 35%;
+  padding: 2px;
 }
 
 .auth-switch button:hover {
-  background-color: var(--color-green2);
+  background-color: var(--color-light3);
   text-decoration: none;
+  text-decoration: underline;
 }
 
 .alert-msg {
@@ -61,6 +62,13 @@
 }
 
 .login-btn {
+  margin-top: 15px;
   width: 20%;
+  padding: 2px;
   align-self: center;
+}
+
+.login-btn:hover {
+  background-color: var(--color-light3);
+  text-decoration: underline;
 }

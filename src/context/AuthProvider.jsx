@@ -25,15 +25,11 @@ const AuthProvider = ({ children }) => {
 
   const handleLogin = (username, password) => {
     const loggedUser = userService.login(username, password);
-    console.log(loggedUser);
 
     if (!loggedUser) {
-      // alert("User not found");
-      navigate("/signup");
       return null;
     }
     setUser(loggedUser);
-    console.log(user);
 
     navigate("/students");
     return true;

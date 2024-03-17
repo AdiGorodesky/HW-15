@@ -4,6 +4,7 @@ import AddOrEdit from "../components/AddOrEdit";
 import { useUser } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { userService } from "../../services/userService";
+import { utilService } from "../../services/utilService";
 
 const emptyStudent = {
   name: "",
@@ -21,7 +22,6 @@ const StudentsPage = () => {
 
   const { user } = useUser();
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     if (!user) {
@@ -32,14 +32,12 @@ const StudentsPage = () => {
   useEffect(() => {
     const loadStudents = async () => {
       const loadedStudents = await userService.getStudentAsync();
-      console.log(loadedStudents);
       setStudents(loadedStudents);
     };
 
     loadStudents();
   }, []);
 
-  console.log(students);
   const removeStudent = (studentId) => {
     const updatedStudents = students.filter(
       (student) => student.id !== studentId
@@ -107,7 +105,7 @@ const StudentsPage = () => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {students?.map((student) => (
             <Student
               key={student.id}
               student={student}

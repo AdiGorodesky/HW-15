@@ -37,6 +37,13 @@
 }
 
 .register-btn {
+  margin-top: 15px;
   width: 20%;
+  padding: 2px;
   align-self: center;
+}
+
+.register-btn:hover {
+  background-color: var(--color-light3);
+  text-decoration: underline;
 }
