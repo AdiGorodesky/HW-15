@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Student from "../components/Student";
 import AddOrEdit from "../components/AddOrEdit";
-import useUser from "../context/AuthProvider";
+import { useUser } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { userService } from "../../services/userService";
 
