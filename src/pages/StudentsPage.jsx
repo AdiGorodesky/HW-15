@@ -32,12 +32,14 @@ const StudentsPage = () => {
   useEffect(() => {
     const loadStudents = async () => {
       const loadedStudents = await userService.getStudentAsync();
+      console.log(loadedStudents);
       setStudents(loadedStudents);
     };
 
     loadStudents();
   }, []);
 
+  console.log(students);
   const removeStudent = (studentId) => {
     const updatedStudents = students.filter(
       (student) => student.id !== studentId
@@ -52,6 +54,19 @@ const StudentsPage = () => {
 
     setSelectedStudent(selectedStudent);
     setChangedStudent(selectedStudent);
+  };
+
+  const handleAddStudent = (newStudent) => {
+    newStudent = {
+      id: utilService.generateId(),
+      name: newStudent.name,
+      age: newStudent.age,
+      major: newStudent.major,
+      university: newStudent.university,
+      averageGrade: newStudent.averageGrade,
+    };
+
+    setStudents([...students, newStudent]);
   };
 
   const handleChangedStudent = (changedStudent) => {
