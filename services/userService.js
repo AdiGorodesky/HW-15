@@ -7,7 +7,13 @@ async function getStudentAsync() {
   return Promise.resolve(students);
 }
 
-function createUser(username, email, password, avatar = "") {
+function createUser(user) {
+  const { username, email, password, avatar = "" } = user;
+
+  const totalUsers = storageService.getUsers();
+  const isExist = totalUsers.some((user) => user.username === username);
+  if (isExist) return null;
+
   const newUser = {
     id: `${utilService.generateId()}`,
     username,
@@ -17,12 +23,14 @@ function createUser(username, email, password, avatar = "") {
     isAdmin: false,
     createdAt: new Date(),
   };
-  const totalUsers = storageService.getUsers();
+
   storageService.saveUsers([...totalUsers, newUser]);
+  return true;
 }
 
 function login(username, password) {
   const users = storageService.getUsers();
+
   const foundedUser = users.find(
     (user) => user.password === password && user.username === username
   );
@@ -55,7 +63,7 @@ async function fetchAvatar(username = "shoshi") {
     console.log(error);
   }
 }
-fetchAvatar();
+// fetchAvastar();
 
 export const userService = {
   getStudentAsync,

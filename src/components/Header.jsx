@@ -1,13 +1,15 @@
 import Button from "./Button";
+import { useUser } from "../context/AuthProvider";
 
-const Header = ({ handleLogout, loggedInUser }) => {
+const Header = () => {
+  const { handleLogout, user } = useUser();
   return (
     <header>
       <div className="logo">Students</div>
       <div className="user-info">
-        {loggedInUser ? (
+        {user ? (
           <>
-            <h3>Hello, {loggedInUser.username}</h3>
+            <h3>Hello, {user.username}</h3>
             <Button onClick={() => handleLogout()}>Logout</Button>
           </>
         ) : null}
